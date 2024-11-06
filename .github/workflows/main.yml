@@ -35,7 +35,7 @@ jobs:
       - name: Wait for MySQL to be ready
         run: |
           echo "Waiting for MySQL to be ready..."
-          for i in {1..30}; do
+          for i in {1..5}; do
             mysqladmin --protocol=tcp -h localhost -P 3306 -u root -p ${{env.MYSQL_ROOT_PASSWORD}} ping &> output.txt && break
             echo "MySQL is not ready yet... retrying in 2 seconds."
             sleep 2
